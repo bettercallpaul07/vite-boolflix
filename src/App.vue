@@ -19,16 +19,18 @@ export default {
   },//components
 
   methods: {
-    handleSearchEvent() {
-      console.log("Sono in search event", this.store.searchText);
+
+    searchEvent(){
+      this.makeSearch("movie")
+      this.makeSearch("tv") 
     },
 
-    getFilm() {
+    makeSearch(endpoint) {
 
-      let url = 'https://api.themoviedb.org/3/search/movie?';
+      let url = 'https://api.themoviedb.org/3/search/';
 
       axios
-        .get(url, {
+        .get(url + endpoint, {
           params: {
             api_key: '02368db92224d475e889240283233038',
             query: this.store.searchText,
@@ -36,15 +38,22 @@ export default {
           }
         })
 
+        
         .then((response) => {
           console.log('------------------------------------');
           console.log(response);
           console.log('------------------------------------');
 
-          this.store.movies = response.data.results;
-        });
-    }
+          if (endpoint == "movie") {
+            this.store.movies = response.data.results;
+          }
 
+          else {
+            this.store.tv = response.data.results;
+          }
+    })
+
+    },
   },//methods
 
 
@@ -54,7 +63,7 @@ export default {
 
 <template>
 
-  <AppSearch @performSearch="getFilm" />
+  <AppSearch @performSearch="searchEvent()" />
 
   <AppMain />
 
