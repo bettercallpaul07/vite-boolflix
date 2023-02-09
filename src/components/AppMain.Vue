@@ -15,9 +15,12 @@ import {store} from "../store.js";
     },//components
 
     methods: {
-    },//methods
+
  
-}//export
+
+    }//methods,
+
+    }//export
 
 </script>
 
@@ -27,13 +30,16 @@ import {store} from "../store.js";
             <h3>
                 {{ movie.title }}
             </h3>
-            <h4>
-                {{ movie.original.language }}
 
-            </h4>
-            <h5>
+            <h4>
                 {{ movie.vote_average }}
-            </h5>
+            </h4>
+
+            <span>
+                <img :src="`../assets/flags/${movie.original_language}.svg`" :alt="`${movie.original_language}`">
+            </span> 
+
+
             <h6>
                 {{ movie.release_date }}
             </h6>
