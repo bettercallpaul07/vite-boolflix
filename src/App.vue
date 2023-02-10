@@ -49,7 +49,7 @@ export default {
           }
 
           else {
-            this.store.tv = response.data.results;
+            // this.store.tv = response.data.results;
           }
     })
 

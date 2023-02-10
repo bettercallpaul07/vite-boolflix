@@ -11,13 +11,31 @@ import {store} from "../store.js";
         };
              },
 
-    components: {
-    },//components
+             computed: {
+                cover() {
+                    const initialUrl = "https://image.tmdb.org/t/p/";
+                    const coverSize = "w342";
+                    const posterPath = this.movie.poster_path
+
+                    return initialUrl + coverSize + posterPath;
+                }, 
+
+                vote() {
+                    let newVote = this.movie.vote_average
+                    newVote = Math.ceil(newVote/2)
+
+                    console.log(newVote);
+
+                    return newVote
+                }
+
+
+             },
+
+            components: {
+            },//components
 
     methods: {
-
- 
-
     }//methods,
 
     }//export
@@ -31,8 +49,12 @@ import {store} from "../store.js";
                 {{ movie.title }}
             </h3>
 
+            <div>
+                <img :src=cover alt="">
+            </div>
+
             <h4>
-                {{ movie.vote_average }}
+                <p> {{ vote }}</p>
             </h4>
             
             <div class="img-container">
@@ -52,6 +74,10 @@ import {store} from "../store.js";
             <h3>
                 {{ series.name }}
             </h3>
+
+            <div>
+                <img src="" alt="">
+            </div>
 
             <h4>
                 {{ series.vote_average }}
@@ -78,8 +104,8 @@ import {store} from "../store.js";
 
 .img-container {
 
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 
     img {
         width: 100%;
