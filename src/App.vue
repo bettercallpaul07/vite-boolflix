@@ -62,14 +62,25 @@ export default {
 </script>
 
 <template>
+  <body>
+    
 
   <AppSearch @performSearch="searchEvent()" />
 
   <AppMain />
 
+</body>
+
+
 
 </template>
 
 <style lang="scss">
+
+body {
+  background-color: rgb(20, 20, 20);
+}
+
+
 
 </style>
