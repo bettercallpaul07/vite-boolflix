@@ -97,7 +97,7 @@
         .back {
             display: none;
             background-color: rgba (0, 0 , 0, .6);
-            max-height: 100%;
+            max-height: 367px;
             color: white;
             overflow-y: auto;
             overflow-x: hidden;

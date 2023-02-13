@@ -20,15 +20,13 @@ import AppCard from "./AppCard.vue";
 
 <template>
     <main>
-        <h2>Film</h2>
 
         <div class="container">
+
             <AppCard
             v-for="movie in store.movies"
             :element="movie"
             />
-
-            <h2>SerieTV</h2>
 
             <AppCard
             v-for="singleSeries in store.tv"
@@ -57,6 +55,7 @@ main {
     flex-wrap: wrap;
 
     * {
+        padding: 10px;
         width: 20%;
     }
 
